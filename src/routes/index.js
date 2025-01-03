@@ -4,6 +4,6 @@ const pessoas = require('./pessoasRoutes.js');
 module.exports = app => {
     app.use(
         express.json(),
-        pessoas
+        pessoas,
     );
 };
