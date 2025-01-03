@@ -1,7 +1,7 @@
 /*
     Conforme vimos na aula anterior, precisamos flexibilizar nossos modelos para que eles possam receber regras de negocio especificas, coisa que não é possivel da forma como nosso modelo se encontra. 
 
-    Vamos começar criando, dentro da pasta 'src' uma pasta chamada 'services' e, dentro dessa pasta, um arquivo 'Services.js'. Esse arquivo servirá como camada intermediária (uma subcamadas, conforme visto na aula 5) e será responsável por pegar o modelo, aplicar as regras de negocio e realizar a interface com os controllers
+    Vamos começar criando, dentro da pasta 'src' uma pasta chamada 'services' e, dentro dessa pasta, um arquivo 'Services.js'. Esse arquivo servirá como camada intermediária (uma subcamadas, conforme visto na aula 5) e será responsável por pegar o modelo, saplicar as regras de negocio e realizar a interface com os controllers
     Como 'Services' vai se comunicar com nosso modelo, precisamos começar importando os modelo em Services
 */
 const dataSource = require('../models');
