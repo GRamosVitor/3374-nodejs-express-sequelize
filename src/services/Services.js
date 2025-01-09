@@ -25,10 +25,10 @@ class Services {
         return dataSource[this.model].create(dadosDoRegistro);
     }
 
-    async updateRegister(dadosAtualizados, id) {
+    async updateRegister(dadosAtualizados, where) {
         const listaDeregistrosAtualizados =  dataSource[this.model].update
         (dadosAtualizados, {
-          where: { id: id }
+          where: { ...where }
         });
         if (listaDeregistrosAtualizados[0] === 0){
             return false;
@@ -37,8 +37,8 @@ class Services {
         }
     }
 
-    async deleteRegister(id) {
-        return dataSource[this.model].destroy({ where: { id: id} });
+    async deleteRegister(where) {
+        return dataSource[this.model].destroy({ where: {...where} });
     }
 }
 

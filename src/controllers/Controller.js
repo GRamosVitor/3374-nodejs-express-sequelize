@@ -46,10 +46,11 @@ class Controller {
     }
 
     async atualiza(req, res) {
-        const { id } = req.params;
+        const { ...params } = req.params;
+        const where = converteId(params)
         const dadosAtualizados = req.body;
         try{
-            const isAtualizado = await this.entidadeService.updateRegister(dadosAtualizados, Number(id));
+            const isAtualizado = await this.entidadeService.updateRegister(dadosAtualizados, where);
     
             if(!isAtualizado){
                 return res.status(400).json({mensagem: 'Registro não atualizado'})
@@ -61,10 +62,11 @@ class Controller {
     }
 
     async excluir(req, res){
-        const { id } = req.params;
+        const { ...params } = req.params;
+        const where = converteId(params)
         try{
-            await this.entidadeService.deleteRegister(Number(id));
-            return res.status(200).json({mensagem: `id ${id} deletado`});
+            await this.entidadeService.deleteRegister(where);
+            return res.status(200).json({mensagem: `id ${where.i} deletado`});
         }catch(erro){
             return res.status(500).json({ erro: erro.message});
         }
