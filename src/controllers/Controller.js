@@ -23,6 +23,16 @@ class Controller {
         }
     }
 
+    async getOne(req, res) {
+        const { ...params } = req.params;
+        try {
+            const umRegistro = await this.entidadeService.getOneRegister(params);
+            return res.status(200).json(umRegistro);
+        } catch (erro){
+            return res.status(500).json({ erro: erro.message});
+        }
+    }
+
     async createNew(req, res) {
         const dadosParaCriacao = req.body;
         try{
