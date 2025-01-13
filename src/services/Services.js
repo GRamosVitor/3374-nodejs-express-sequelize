@@ -5,8 +5,8 @@ class Services {
         this.model = nomeDoModel;
     }
 
-    async getAllRegisters() {
-        return dataSource[this.model].findAll();
+    async getAllRegisters(where = {}) {
+        return dataSource[this.model].findAll({where: {...where}});
     }
 
     async getRegisterByScope(escopo){
